@@ -56,7 +56,15 @@
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // STEP 1. Zonelets compatibility functions and tag_map initialization
 // Paste the following at the top of the advanced section, right underneath the "BEGINNING OF MORE ADVANCED SECTION" warning where the second //XXX... row appears.
+
 // zlNavboxes zonelets compatibility functions and initialization
+document.addEventListener("DOMContentLoaded", (event) => {
+	let getRidOfMe = document.querySelectorAll('.zlnavboxes_js_error');
+	if (getRidOfMe){
+		for (let i = 0; i < getRidOfMe.length; i++)
+		getRidOfMe[i].remove();
+	}
+});
 function tagSafeDecodeURI(post_index) {	// Make sure we decode a URI, not an array or title // with this function, there are cases where [i][1] = tag array [i][2] = undefined, [i][1] = uri [i][2] = tag array
 	if ( Array.isArray(postsArray[post_index][1]) ) return decodeURI(postsArray[post_index][2]);
 	return decodeURI(postsArray[post_index][1])
@@ -77,38 +85,38 @@ function getPostsArrayIndex(postIndex){
 	return element_position;
 }
 
-	// generate map of tags
-	// determine what tags are in use and what posts (by index) have tags
-	// 
-	let tags_map = new Map();
-	for (let i = 0; i < postsArray.length; i++) {
-		let current_postIndex = i;
-		let current_postSet = new Set();
+// generate map of tags
+// determine what tags are in use and what posts (by index) have tags
+// 
+let tags_map = new Map();
+for (let i = 0; i < postsArray.length; i++) {
+	let current_postIndex = i;
+	let current_postSet = new Set();
 
-		if (postsArray[i].length > 1) {
+	if (postsArray[i].length > 1) {
 
-			let element_position = 1
-			if(postsArray[i][2]) element_position = 2;
+		let element_position = 1
+		if(postsArray[i][2]) element_position = 2;
 
-			if(Array.isArray(postsArray[i][element_position])){
-				// associate post with tag in tag map
-				for(let ii = 0; ii < postsArray[i][element_position].length; ii++){
-					let current_tagName = postsArray[i][element_position][ii];
+		if(Array.isArray(postsArray[i][element_position])){
+			// associate post with tag in tag map
+			for(let ii = 0; ii < postsArray[i][element_position].length; ii++){
+				let current_tagName = postsArray[i][element_position][ii];
 
-					if (tags_map.has(current_tagName)) {
-						current_postSet = tags_map.get(current_tagName);
+				if (tags_map.has(current_tagName)) {
+					current_postSet = tags_map.get(current_tagName);
 
-						if (!current_postSet.has(current_postIndex)) {		
-							current_postSet.add(current_postIndex);
-							tags_map.set(current_tagName, current_postSet);
-						}
-					} else {
-						tags_map.set(current_tagName, new Set([current_postIndex]));
+					if (!current_postSet.has(current_postIndex)) {		
+						current_postSet.add(current_postIndex);
+						tags_map.set(current_tagName, current_postSet);
 					}
+				} else {
+					tags_map.set(current_tagName, new Set([current_postIndex]));
 				}
 			}
 		}
-	}	
+	}
+}	
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // STEP 2. Modified Zonelets code
@@ -153,6 +161,7 @@ function formatPostLink(i, noDates_flag) { 		// modified from original
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // STEP 3. Propagation (uh is that the right word) functions		// I'm really good at misusing words
 // Add these functions to the end of the ==[ 3. GENERATING THE HTML SECTIONS TO BE INSERTED ]== section, just below what's already there.
+
 // zlNavboxes Propagation functions
 	// determine what tags are in use and what posts (by index) have tags
 function generateCommaList(ia) {	// ia = Input Array
@@ -209,12 +218,13 @@ function populateNavbox(nb) {	//TODO: make this not dependent on IDs, they shoul
 	// then do the inserting/generating/creating/setting/appending/getting yknow
 	if(nb.id == "related"){
 		let temp_ta = postsArray[currentIndex][getPostsArrayIndex(currentIndex)];
-		if (temp_ta.length > 1) {
-			for (tag of temp_ta) nb.querySelector('tbody').appendChild(generateTagRow(tag));
-		} else if (temp_ta.length !== 0) {
-			nb.querySelector('tbody').appendChild(generateTagRow(temp_ta[0]));
-		}			
-
+		if (temp_ta){
+			if (temp_ta.length > 1) {
+				for (tag of temp_ta) nb.querySelector('tbody').appendChild(generateTagRow(tag));
+			} else if (temp_ta.length !== 0) {
+				nb.querySelector('tbody').appendChild(generateTagRow(temp_ta[0]));
+			}
+		} else nb.remove(); // Remove the whole table if the post has no tags but has a table
 	} else if (nb.id == "posts" || nb.id == "tags" || nb.id == "all") {
 		// render all tags row, if requested
 		if(nb.id == "all" || nb.id == "tags") {
