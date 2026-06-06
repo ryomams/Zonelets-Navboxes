@@ -1,0 +1,57 @@
+/*
+  Go through zlNavboxes.js and zlNavboxes.html if you haven't done so yet!
+
+  HOW TO COPY:
+
+  Paste the following style sheet in the place most convenient for your css.
+  Generally, the bottom of the file will work.
+  
+*/
+
+/* navboxes */
+ul.commaList {
+  & li + li:before {
+  
+    content: ", ";
+  }
+  & li, ul {
+    display:contents;
+  }
+}
+
+table.navbox {
+  border-collapse: collapse;
+  border: 2px ridge #913914;
+  outline-width: 4px;
+  max-width: 500px;
+
+  & li + li:before {
+  
+    content: ", ";
+  }
+  & li, ul {
+    display:contents;
+  }
+  & a:link {
+    color: #913914;
+
+  }
+  & a:hover {
+    color: #c77851;
+  }
+  & a:visited {
+    color: #c77851;
+  }
+
+  & th, thead {
+    background-color: #c77851;
+    color: white;
+    border: 2px solid #913914;
+  }
+  & tr {
+    border: 2px solid #913914;
+  }
+  & td {
+    background-color: #D9CDB5;
+  }
+}

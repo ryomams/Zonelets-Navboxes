@@ -1,0 +1,89 @@
+This is the HTML for your navboxes! Please read the source in a text editor if you happen to be on a browser.
+<!--
+/*
+	STEPS TO COPY:
+
+	STEP 1. Copy Navbox HTML to your archive.html, and optionally on any other main pages you desire
+	STEP 2. Copy Navbox HTML to your post template, if you have one
+	STEP 3. Copy Navbox HTML to your posts to update them
+*/
+-->
+
+<!--	TABLE HTML	-->
+<table class="navbox" id="NAVBOX ID GOES HERE">
+	<caption>
+
+	</caption>
+	<thead>
+	<th scope = "row" colspan = "2">
+	All posts and tags
+	</th>
+	</thead>
+	<tbody>
+	<td class = "zlnavboxes_js_error" colspan="2" style="text-align: center">Please enable JavaScript to see this navbox!</td>
+	</tbody>
+	<tfoot>
+
+	</tfoot>
+</table>
+
+<!--	HEADER HTML	-->
+<h4 id="postTags"></h4>
+
+
+
+<!--
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// STEP 1. archive.html
+// Paste the table HTML on your archive.html toward the bottom
+// of your body tag, just above your footer, and set the table's
+// ID.		
+
+	You can set one navbox per page to have an ID of "all", "posts", or "tags":
+		- If you set the navbox's <table>'s ID to "tags", it will generate a table of
+			all in-use tags.
+		- If you set the navbox's <table>'s ID to "posts", it will generate the standard
+			navbox table that appears except it will have a row for every active post.
+		- If you set the navbox's <table>'s ID to "all", it will generate a table with
+			the "tags"-style navbox above the "posts".
+
+-->
+
+<!--
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// STEP 2. ./posts/XX-XX-XX-Post-Template.html
+// Paste the header HTML underneath your <h4 id="postDate">...</h4>.
+// You can put it anywhere you think looks good.
+// Then, paste the table HTML in your post template, toward the bottom
+// of your body tag, just above your <div id="nextprev"> or wherever
+// your footer starts.
+// Set the table ID to "related", so the navbox can show related
+// posts corresponding to the tag of the post. 
+
+	You can set one navbox per page to have an ID of "all", "posts", or "tags":
+		- If you set the navbox's <table>'s ID to "tags", it will generate a table of
+			all in-use tags.
+		- If you set the navbox's <table>'s ID to "posts", it will generate the standard
+			navbox table that appears except it will have a row for every active post.
+		- If you set the navbox's <table>'s ID to "all", it will generate a table with
+			the "tags"-style navbox above the "posts".
+
+-->
+
+<!--
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// STEP 3. The Posts 
+// Hopefully this isn't too tedious for you. I'm hoping to write a
+// script that does this but not promises!
+// Given any post in your posts folder, first, copy the header HTML
+// and paste it underneath the posts's <h4 id="postDate">...</h4>
+// tag. Then, paste the table HTML and set its ID to "related".
+// Do this for every post you have. Sorry!!
+-->
+
+<!--
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// STEP 3. DONE
+// You're done yay now go add navboxes!! And go through zlNavboxes.js
+// and zlNavboxes.css if you haven't yet!
+-->
