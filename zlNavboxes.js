@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		getRidOfMe[i].remove();
 	}
 });
+
 function tagSafeDecodeURI(post_index) {	// Make sure we decode a URI, not an array or title // with this function, there are cases where [i][1] = tag array [i][2] = undefined, [i][1] = uri [i][2] = tag array
 	if ( Array.isArray(postsArray[post_index][1]) ) return decodeURI(postsArray[post_index][2]);
 	return decodeURI(postsArray[post_index][1])
