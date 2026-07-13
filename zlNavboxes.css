@@ -1,11 +1,14 @@
 /*
   Go through zlNavboxes.js and zlNavboxes.html if you haven't done so yet!
 
-  HOW TO COPY:
+  COPYING INSTRUCTIONS:
 
   Paste the following style sheet in the place most convenient for your css.
   Generally, the bottom of the file will work.
   
+  Also, this CSS is just a template! You can use as much or as little of this
+  file as you want, most of these attributes simply change colors.
+
 */
 
 /* navboxes */
@@ -21,7 +24,7 @@ ul.commaList {
 
 table.navbox {
   border-collapse: collapse;
-  border: 2px ridge #913914;
+  border: 2px ridge #000000;
   outline-width: 4px;
   max-width: 500px;
 
@@ -33,25 +36,25 @@ table.navbox {
     display:contents;
   }
   & a:link {
-    color: #913914;
+    color: #0008ff;
 
   }
   & a:hover {
-    color: #c77851;
+    color: #4274ff;
   }
   & a:visited {
-    color: #c77851;
+    color: #6e2bff;
   }
 
   & th, thead {
-    background-color: #c77851;
-    color: white;
-    border: 2px solid #913914;
+    background-color: #ffffff;
+    color: #ffffff;
+    border: 2px solid #000000;
   }
   & tr {
-    border: 2px solid #913914;
+    border: 2px solid #000000;
   }
   & td {
-    background-color: #D9CDB5;
+    background-color: #c9c9c9;
   }
 }
