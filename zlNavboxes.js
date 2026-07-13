@@ -209,14 +209,8 @@ function generateTagRow(tagName) {
 
 	// determine what navboxes to render given the page and render them 		NOTE: this might get funky with multiple navboxes on a page (see next comment)
 function populateNavbox(nb) {	//TODO: make this not dependent on IDs, they should be classes
-	// initialize table for DOM manipulation and remove no-js error(s)
-	let getRidOfMe = document.getElementsByClassName('zlnavboxes_js_error');
-	if (getRidOfMe){
-		for (let i = 0; i < getRidOfMe.length; i++)
-		getRidOfMe[i].remove();
-	}
 
-	// then do the inserting/generating/creating/setting/appending/getting yknow
+	// do the inserting/generating/creating/setting/appending/getting
 	if(nb.id == "related"){
 		let temp_ta = postsArray[currentIndex][getPostsArrayIndex(currentIndex)];
 		if (temp_ta){
