@@ -3,13 +3,13 @@ This is the HTML for your navboxes! Please read the source in a text editor if y
 /*
 	STEPS TO COPY:
 
-	STEP 1. Copy Navbox HTML to your archive.html, and optionally on any other main pages you desire
-	STEP 2. Copy Navbox HTML to your post template, if you have one
-	STEP 3. Copy Navbox HTML to your posts to update them
+	STEP 1. Copy TABLE HTML to your archive.html, and optionally on any other main pages you desire
+	STEP 2. Copy TABLE HTML and HEADER HTML to your post template, if you have one
+	STEP 3. Copy TABLE HTML and HEADER HTML to your existing posts to update them if you desire
 */
 -->
 
-<!--	TABLE HTML	-->
+<!--	TABLE HTML - this represents a "navbox"	-->
 <table class="navbox" id="NAVBOX ID GOES HERE">
 	<caption>
 
@@ -27,7 +27,7 @@ This is the HTML for your navboxes! Please read the source in a text editor if y
 	</tfoot>
 </table>
 
-<!--	HEADER HTML	-->
+<!--	HEADER HTML - this represents the list of tags that corresponds to a current post, this must go on a post page.	-->
 <h4 id="postTags"></h4>
 
 
@@ -43,7 +43,7 @@ This is the HTML for your navboxes! Please read the source in a text editor if y
 		- If you set the navbox's <table>'s ID to "tags", it will generate a table of
 			all in-use tags.
 		- If you set the navbox's <table>'s ID to "posts", it will generate the standard
-			navbox table that appears except it will have a row for every active post.
+			navbox table that appears except it will have a tag-row for every active post.
 		- If you set the navbox's <table>'s ID to "all", it will generate a table with
 			the "tags"-style navbox above the "posts".
 
@@ -74,7 +74,7 @@ This is the HTML for your navboxes! Please read the source in a text editor if y
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // STEP 3. The Posts 
 // Hopefully this isn't too tedious for you. I'm hoping to write a
-// script that does this but not promises!
+// script that does this but no promises!
 // Given any post in your posts folder, first, copy the header HTML
 // and paste it underneath the posts's <h4 id="postDate">...</h4>
 // tag. Then, paste the table HTML and set its ID to "related".
@@ -83,7 +83,7 @@ This is the HTML for your navboxes! Please read the source in a text editor if y
 
 <!--
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-// STEP 3. DONE
+// STEP 900000. DONE
 // You're done yay now go add navboxes!! And go through zlNavboxes.js
 // and zlNavboxes.css if you haven't yet!
 -->
